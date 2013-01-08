@@ -37,7 +37,7 @@ def process_dif ary
   exercise_id = ary[0]
   submission_id = ary[1]
   other_submission_id = ary[2]
-  @log.info("      Diffing submissions #{submission.id}  #{other_submission.id} #{Thread.current}")
+  @log.info("      Diffing submissions #{submission_id}  #{other_submission_id} #{Thread.current}")
   submission_text = ary[3]
   other_submission_text = ary[4] 
   similarity = distancs(submission_text,other_submission_text).to_f / [submission_text.length, other_submission_text.length].max.to_f
