@@ -1,0 +1,18 @@
+%h1 Listing levenshtein similarities
+= link_to 'View model solution', course_exercise_model_solutions_path(@course, @exercise)
+
+= form_tag course_exercise_levenshtein_similarity_index_path(@course, @exercise), :method => :get do
+  = label :min, 'Similarity vähintään'
+  = text_field_tag :min, params[:min]
+  = submit_tag 'Refresh'
+
+%table
+  %thead
+    %tr
+      %th Submission identifier
+      %th Similarity
+  %tbody
+    - @similarities.each do |sim|
+      %tr
+        %td= link_to sim.submission.identifier, course_exercise_submission_path(@course, @exercise, sim.submission)
+        %td= sim.similarity

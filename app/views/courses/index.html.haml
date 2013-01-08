@@ -1,0 +1,11 @@
+%h1 Listing courses
+
+%table
+  %thead
+    %tr
+      %th Course
+  %tbody
+    - @courses.each do |c|
+      %tr
+        %td= link_to c.name, course_exercises_path(c)
+

@@ -1,0 +1,7 @@
+%h1 Submission
+
+- @submission.submission_files.each do |e|
+  %h2= e.filename
+  %pre 
+    =  e.code 
+

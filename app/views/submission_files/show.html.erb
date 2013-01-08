@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Filename:</b>
+  <%= @submission_file.filename %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%= @submission_file.code %>
+</p>
+
+
+<%= link_to 'Edit', edit_submission_file_path(@submission_file) %> |
+<%= link_to 'Back', submission_files_path %>

@@ -1,0 +1,2 @@
+module ModelSolutionsHelper
+end

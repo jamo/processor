@@ -1,0 +1,7 @@
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+/db/*.sqlite3
+/devel_good.sqlite3
+/lib/database.log
+/db/development.sqlite3-journal

@@ -1,0 +1,17 @@
+source 'http://rubygems.org'
+
+gem 'activerecord'
+#gem 'standalone_migrations'
+#JRUBY_OPTS="-Xcext.enabled=true" gem install amatch
+gem 'amatch'
+
+platform :jruby do
+  gem 'activerecord-jdbcsqlite3-adapter'
+  gem 'jruby-openssl'
+  gem 'activerecord-jdbc-adapter'
+  gem 'therubyrhino', group: :assets
+end
+
+platform :ruby do
+  gem 'sqlite3'
+end

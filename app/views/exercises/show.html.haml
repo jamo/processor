@@ -1,0 +1,15 @@
+
+%h1= @exercise.title
+= link_to 'View model solution', course_exercise_model_solutions_path(@course, @exercise)
+= link_to 'View similarity data', course_exercise_levenshtein_similarity_index_path(@course, @exercise)
+%table
+  %thead
+    %tr
+      %th Identifier
+  %tbody
+    - @exercise.submissions.each do |e|
+      %tr
+        %td= link_to e.identifier, course_exercise_submission_path(@course, @exercise, e)
+
+
+= link_to 'Back', course_exercises_path(@course)

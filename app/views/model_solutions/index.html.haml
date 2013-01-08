@@ -1,0 +1,5 @@
+- @model_solution.each do |ms|
+  %h3= ms.filename
+  - ms.submission_files.each do |f|
+    %h3= f.filename
+    %pre= f.code
