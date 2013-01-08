@@ -2,6 +2,7 @@ ENV['RAILS_ENV'] =  'development' #ARGV.first || ENV['RAILS_ENV'] ||nyt ku
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 
 @log = Logger.new(STDOUT)
+@log.debug("Loaded db")
 
 original_formatter = Logger::Formatter.new
 @log.formatter = proc { |severity, datetime, progname, msg|
@@ -16,8 +17,10 @@ module ActiveRecord::ConnectionAdapters
   end
 end
 
+@log.debug("requiring Levenshtein")
 require 'levenshtein'
 include  Levenshtein
+@log.debug("Levenshtein included")
 require 'fileutils'
 require 'find'
 require 'pry'
