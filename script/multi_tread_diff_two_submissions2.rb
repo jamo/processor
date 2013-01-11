@@ -80,7 +80,7 @@ cons6 = Thread.new do
 end
 
 producer = Thread.new do
-  Exercise.scoped.order('id asc').limit(2).each do |exercise|
+  Exercise.scoped.order('id asc').limit(10).offset(2).each do |exercise|
     @log.info("Adding exercises submissios to queue #{exercise.id} #{Thread.current}")
       exercise.submissions.each do |submission|
       exercise.submissions.where(:submission_id != submission.id).each do |other_submission|
