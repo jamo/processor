@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107000852) do
+ActiveRecord::Schema.define(:version => 20130111211309) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(:version => 20130107000852) do
     t.integer  "exercise_id"
     t.integer  "model_solution_id"
   end
+
+  add_index "submission_files", ["submission_id"], :name => "index_submission_files_on_submission_id"
 
   create_table "submissions", :force => true do |t|
     t.string   "identifier"

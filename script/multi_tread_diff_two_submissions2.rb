@@ -45,30 +45,36 @@ end
 
 
 cons = Thread.new do 
+  puts "thread created"
   tulokset << process_dif(queue.pop)
   @log.info("popped  #{Thread.current}")
 end
 
 cons2 = Thread.new do 
+  puts "thread created"
   @log.info("popped  #{Thread.current}")
   tulokset << process_dif(queue.pop)
 end
 
 cons3 = Thread.new do
+  puts "thread created"
   tulokset << process_dif(queue.pop)
   @log.info("popped  #{Thread.current}")
 end
 
 cons4 = Thread.new do
+  puts "thread created"
   tulokset << process_dif(queue.pop)
   @log.info("popped  #{Thread.current}")
 end
 
 cons5 = Thread.new do
+  puts "thread created"
   tulokset << process_dif(queue.pop)
   @log.info("popped  #{Thread.current}")
 end
 cons6 = Thread.new do
+  puts "thread created"
   tulokset << process_dif(queue.pop)
   @log.info("popped  #{Thread.current}")
 end
@@ -81,6 +87,8 @@ producer = Thread.new do
         if LevenshteinSimilarityForTwoSubmission.where("from_submission = ? AND to_submission = ?", submission.id, other_submission.id) == []
           @log.info("    Adding submission to queue #{submission.id}  #{other_submission.id} #{Thread.current}")
           queue << [exercise.id,submission.id,other_submission.id, collect_submission_text(submission), collect_submission_text(other_submission) ]
+        else
+          @log.info("    SKIPPING submission to queue #{submission.id}  #{other_submission.id} #{Thread.current}")
         end
       end
     end
